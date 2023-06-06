@@ -30,7 +30,7 @@ class SentimentRecommenderModel:
             SentimentRecommenderModel.ROOT_PATH + SentimentRecommenderModel.VECTORIZER)
         self.user_final_rating = pickle.load(open(
             SentimentRecommenderModel.ROOT_PATH + SentimentRecommenderModel.RECOMMENDER, 'rb'))
-        self.data = pd.read_csv("/Users/gauravsharma/Downloads/Sentiment-Based Product Recommendation System/Dataset/sample30.csv")
+        self.data = pd.read_csv("dataset/sample30.csv")
         self.cleaned_data = pickle.load(open(
             SentimentRecommenderModel.ROOT_PATH + SentimentRecommenderModel.CLEANED_DATA, 'rb'))
         self.lemmatizer = WordNetLemmatizer()
@@ -84,7 +84,7 @@ class SentimentRecommenderModel:
 
     def preprocess_text(self, text):
 
-        # cleaning the review text (lower, removing punctuation, numericals, whitespaces)
+        # cleaning the review text (lower, removing punctuation, numericals, whitespaces).
         text = text.lower().strip()
         text = re.sub("\[\s*\w*\s*\]", "", text)
         dictionary = "abc".maketrans('', '', string.punctuation)
